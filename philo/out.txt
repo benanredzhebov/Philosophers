@@ -1,0 +1,46 @@
+[0;32m0 1 has taken a fork              [0m
+[0;32m0 1 has taken a fork              [0m
+[0;35m0 1 is eating                     [0m
+[0;34m203 1 is sleeping                   [0m
+[0;32m203 2 has taken a fork              [0m
+[0;32m203 2 has taken a fork              [0m
+[0;35m203 2 is eating                     [0m
+[0;38;5;24m403 1 is thinking                   [0m
+[0;34m403 2 is sleeping                   [0m
+[0;32m403 1 has taken a fork              [0m
+[0;32m403 1 has taken a fork              [0m
+[0;35m403 1 is eating                     [0m
+[0;34m603 1 is sleeping                   [0m
+[0;38;5;24m603 2 is thinking                   [0m
+[0;32m603 2 has taken a fork              [0m
+[0;32m603 2 has taken a fork              [0m
+[0;35m603 2 is eating                     [0m
+[0;38;5;24m807 1 is thinking                   [0m
+[0;32m807 1 has taken a fork              [0m
+[0;32m807 1 has taken a fork              [0m
+[0;35m807 1 is eating                     [0m
+[0;34m807 2 is sleeping                   [0m
+[0;38;5;24m1009 2 is thinking                   [0m
+[0;34m1009 1 is sleeping                   [0m
+[0;32m1009 2 has taken a fork              [0m
+[0;32m1009 2 has taken a fork              [0m
+[0;35m1009 2 is eating                     [0m
+[0;38;5;24m1212 1 is thinking                   [0m
+[0;34m1212 2 is sleeping                   [0m
+[0;32m1212 1 has taken a fork              [0m
+[0;32m1212 1 has taken a fork              [0m
+[0;35m1212 1 is eating                     [0m
+[0;38;5;24m1412 2 is thinking                   [0m
+[0;34m1415 1 is sleeping                   [0m
+[0;32m1415 2 has taken a fork              [0m
+[0;32m1415 2 has taken a fork              [0m
+[0;35m1415 2 is eating                     [0m
+[0;38;5;24m1617 1 is thinking                   [0m
+[0;32m1617 1 has taken a fork              [0m
+[0;32m1617 1 has taken a fork              [0m
+[0;35m1617 1 is eating                     [0m
+[0;34m1617 2 is sleeping                   [0m
+[0;38;5;24m1820 2 is thinking                   [0m
+[0;32m1820 2 has taken a fork              [0m
+[0;32m1820 2 has taken a fork              [0m
+[0;35m1820 2 is eating                     [0m
