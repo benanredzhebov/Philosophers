@@ -6,7 +6,7 @@
 /*   By: beredzhe <beredzhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:46:40 by beredzhe          #+#    #+#             */
-/*   Updated: 2024/04/17 11:09:13 by beredzhe         ###   ########.fr       */
+/*   Updated: 2024/04/28 11:27:19 by beredzhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	*routine2(void *args)
 	return (NULL);
 }
 
+/*simulating a cycle of a philosopher's actions: eating, sleeping and
+thinking.*/
 int	simulation(t_philo *phi)
 {
 	if (!philo_eat(phi))

@@ -6,7 +6,7 @@
 /*   By: beredzhe <beredzhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:26:48 by beredzhe          #+#    #+#             */
-/*   Updated: 2024/04/17 11:24:20 by beredzhe         ###   ########.fr       */
+/*   Updated: 2024/04/28 13:54:58 by beredzhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_philo
 {
 	int				id;
 	long long		time_to_die;
+	long long		last_meal_time;
 	int				n_eaten;
 	int				left_fork;
 	int				right_fork;

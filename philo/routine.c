@@ -6,7 +6,7 @@
 /*   By: beredzhe <beredzhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:02:29 by beredzhe          #+#    #+#             */
-/*   Updated: 2024/04/27 11:50:23 by beredzhe         ###   ########.fr       */
+/*   Updated: 2024/04/28 14:03:01 by beredzhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	philo_eat(t_philo *phi)
 	if (!state_print(phi, phi->id + 1, PURPLE, EAT))
 		return (drop_forks(phi, 2), 0);
 	pthread_mutex_lock(&phi->data->tm);
-	phi->time_to_die = get_time();
+	if (phi->data->time_to_sleep < phi->data->time_to_eat)
+		phi->last_meal_time = get_time();
+	else
+		phi->last_meal_time = get_time() + phi->data->time_to_eat;
 	pthread_mutex_unlock(&phi->data->tm);
 	time_sim(phi->data->time_to_eat);
 	drop_forks(phi, 2);
@@ -52,7 +55,7 @@ int	philo_think(t_philo *phi)
 
 int	is_dead(t_philo *phi, int *i)
 {
-	int	time;
+	long long	time;
 
 	if (*i == phi[*i].data->num_of_philo)
 	{
@@ -60,7 +63,7 @@ int	is_dead(t_philo *phi, int *i)
 		usleep(200);
 	}
 	pthread_mutex_lock(&phi->data->tm);
-	time = time_diff(phi[*i].time_to_die);
+	time = time_diff(phi[*i].last_meal_time);
 	if (time > phi[*i].data->time_to_die)
 	{
 		pthread_mutex_unlock(&phi->data->tm);
@@ -71,6 +74,13 @@ int	is_dead(t_philo *phi, int *i)
 		return (1);
 	}
 	pthread_mutex_unlock(&phi->data->tm);
-	*i = *i + 1;
+	*i += 1;
 	return (0);
+}
+
+void	drop_forks(t_philo *phi, int flag)
+{
+	pthread_mutex_unlock(&phi->data->my_mutex[phi->left_fork]);
+	if (flag == 2)
+		pthread_mutex_unlock(&phi->data->my_mutex[phi->right_fork]);
 }
