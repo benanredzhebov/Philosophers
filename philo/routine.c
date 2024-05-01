@@ -6,7 +6,7 @@
 /*   By: beredzhe <beredzhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:02:29 by beredzhe          #+#    #+#             */
-/*   Updated: 2024/04/28 14:03:01 by beredzhe         ###   ########.fr       */
+/*   Updated: 2024/05/01 12:16:11 by beredzhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,15 @@ int	philo_eat(t_philo *phi)
 	if (!state_print(phi, phi->id + 1, PURPLE, EAT))
 		return (drop_forks(phi, 2), 0);
 	pthread_mutex_lock(&phi->data->tm);
-	if (phi->data->time_to_sleep < phi->data->time_to_eat)
-		phi->last_meal_time = get_time();
-	else
-		phi->last_meal_time = get_time() + phi->data->time_to_eat;
+	// if ((phi->data->time_to_sleep < phi->data->time_to_eat) // prevent 4 410 200 200
+	// 	|| (phi->time_to_die < \
+	// 	(phi->data->time_to_eat + phi->data->time_to_sleep) \
+	// 	|| phi->data->time_to_die == (phi->data->time_to_eat \
+	// 	+ phi->data->time_to_sleep)))
+	// 	phi->time_to_die = get_time();
+	// else
+		// phi->last_meal_time = get_time() + phi->data->time_to_eat;
+	phi->time_to_die = get_time();
 	pthread_mutex_unlock(&phi->data->tm);
 	time_sim(phi->data->time_to_eat);
 	drop_forks(phi, 2);
@@ -63,7 +68,8 @@ int	is_dead(t_philo *phi, int *i)
 		usleep(200);
 	}
 	pthread_mutex_lock(&phi->data->tm);
-	time = time_diff(phi[*i].last_meal_time);
+	// time = time_diff(phi[*i].last_meal_time); //prevent 4 410 200 200
+	time = time_diff(phi[*i].time_to_die);
 	if (time > phi[*i].data->time_to_die)
 	{
 		pthread_mutex_unlock(&phi->data->tm);

@@ -6,7 +6,7 @@
 /*   By: beredzhe <beredzhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:46:40 by beredzhe          #+#    #+#             */
-/*   Updated: 2024/04/28 11:27:19 by beredzhe         ###   ########.fr       */
+/*   Updated: 2024/04/29 11:12:43 by beredzhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	*routine(void *arg)
 	return (NULL);
 }
 
+/*creating and managing threads for each philosopher*/
 int	th_create(t_philo *phi)
 {
 	int	i;

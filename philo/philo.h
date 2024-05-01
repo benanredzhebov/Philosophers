@@ -6,7 +6,7 @@
 /*   By: beredzhe <beredzhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 10:26:48 by beredzhe          #+#    #+#             */
-/*   Updated: 2024/04/28 13:54:58 by beredzhe         ###   ########.fr       */
+/*   Updated: 2024/05/01 12:22:58 by beredzhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,30 +37,30 @@
 
 typedef struct s_data
 {
-	int				num_of_philo;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
-	int				num_of_meals; //n_eat
-	int				philo_died;
-	long long		time;
-	pthread_t		monitor;
-	pthread_mutex_t	*my_mutex;
-	pthread_mutex_t	print_mutex;
-	pthread_mutex_t	shared;
-	pthread_mutex_t	tm;
+	int				num_of_philo; // The number of philosophers.
+	int				time_to_die; // The time a philosopher will die after starting to eat.
+	int				time_to_eat; // The time it takes for a philosopher to eat.
+	int				time_to_sleep; // The time a philosopher sleeps after eating.
+	int				num_of_meals; // The number of meals each philosopher must eat.
+	int				philo_died; // A flag indicating if a philosopher has died.
+	long long		time; // The start time of the simulation.
+	pthread_t		monitor; // A thread used to monitor the philosophers.
+	pthread_mutex_t	*my_mutex; // An array of mutexes, one for each fork.
+	pthread_mutex_t	print_mutex; // A mutex used to synchronize printing.
+	pthread_mutex_t	shared; // A mutex used to synchronize shared data. For example only one philosopher at a time can update the number of meals they have eaten.
+	pthread_mutex_t	tm; // A mutex used to synchronize time.
 }					t_data;
 
 typedef struct s_philo
 {
-	int				id;
-	long long		time_to_die;
-	long long		last_meal_time;
-	int				n_eaten;
-	int				left_fork;
-	int				right_fork;
-	t_data			*data;
-	pthread_t		th;
+	int				id; // The philosopher's id.
+	long long		time_to_die; // The time at which the philosopher last ate.
+	// long long		last_meal_time; // The time at which the philosopher last ate.
+	int				n_eaten; // The number of times the philosopher has eaten.
+	int				left_fork; // The id of the fork to the philosopher's left.
+	int				right_fork; // The id of the fork to the philosopher's right.
+	t_data			*data; // a pointer to the shared data structure.
+	pthread_t		th; // The philosopher's thread.
 }					t_philo;
 
 int			ft_isdigit(int n);

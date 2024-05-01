@@ -6,7 +6,7 @@
 /*   By: beredzhe <beredzhe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:43:01 by beredzhe          #+#    #+#             */
-/*   Updated: 2024/04/28 13:58:31 by beredzhe         ###   ########.fr       */
+/*   Updated: 2024/05/01 12:23:13 by beredzhe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ void	init_philo(t_philo *phi, t_data *data)
 	{
 		phi[i].id = i;
 		phi[i].n_eaten = 0;
-		phi[i].time_to_die = data->time_to_die;
-		phi[i].last_meal_time = get_time();
+		phi[i].time_to_die = 0;
+		// phi[i].last_meal_time = get_time();
 		phi[i].left_fork = i;
 		phi[i].right_fork = (i + 1) % data->num_of_philo;
 		phi[i].data = data;
 		i++;
 	}
-	phi[i].time_to_die = data->time_to_die;
+	phi[i].time_to_die = 0;
 	phi[i].n_eaten = 0;
 	phi[i].data = data;
-	phi[i].last_meal_time = get_time();
+	// phi[i].last_meal_time = get_time();
 }
