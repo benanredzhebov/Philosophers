@@ -17,8 +17,6 @@ PHILOSOPHERS - 100%✅
 
 #SUBJECT :
 
-A valid map is structured as followed:
-
 Mandatory: Solving the dining philosophers problem using **threads** and **mutexes**.
 
 **Useful links:**
